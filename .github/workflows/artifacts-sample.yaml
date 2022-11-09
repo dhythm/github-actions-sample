@@ -1,6 +1,9 @@
+name: Artifacts sample
+
 on:
   pull_request:
 
+# https://stackoverflow.com/questions/59175332/using-output-from-a-previous-job-in-a-new-one-in-a-github-action
 jobs:
   first:
     runs-on: ubuntu-latest

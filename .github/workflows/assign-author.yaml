@@ -1,7 +1,8 @@
+name: Assign author
+
 on:
   pull_request:
     types: [opened]
-name: Pull Request
 
 jobs:
   assignAuthor:
