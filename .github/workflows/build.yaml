@@ -10,20 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-      - name: show versions
-        run: npm -v; node -v
-      - uses: actions/cache@v3
-        id: node_modules_cache_id
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: "**/node_modules"
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-      - if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
-        name: Install npm Package
-        run: npm install
+      - uses: ./.github/actions/npm-cache
       - name: Run Build
         run: npm run build
