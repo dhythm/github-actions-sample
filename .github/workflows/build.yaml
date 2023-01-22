@@ -9,6 +9,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Display the current directory and its details
+        run: |
+          pwd
+          ls -la
       - uses: actions/checkout@v3
       - uses: ./.github/actions/npm-cache
       - name: Run Build
